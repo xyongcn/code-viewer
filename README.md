@@ -16,3 +16,8 @@ Code-viewer X-module for EDX
  3. 实现在EDX的页面上显示代码浏览服务器的分析结果；
  4. 实现从x-module通过web服务访问代码浏览服务器；
  
+参考文献
+============
+
+ * [edX Platform Developer Documentation](http://edx-developer-guide.readthedocs.org/en/latest/overview.html)
+ * [x-module的列表](https://github.com/edx/edx-platform/tree/master/common/lib/xmodule/xmodule)
