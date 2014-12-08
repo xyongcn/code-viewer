@@ -15,7 +15,12 @@ Code-viewer X-module for EDX
  2. 实现从EDX的页面上获取用户信息和用户输入；
  3. 实现在EDX的页面上显示代码浏览服务器的分析结果；
  4. 实现从x-module通过web服务访问代码浏览服务器；
- 
+
+常用链接
+========
+
+ * [交流纪要](https://github.com/xyongcn/code-viewer/wiki/log)
+
 参考文献
 ============
 
