@@ -26,3 +26,4 @@ Code-viewer X-module for EDX
 
  * [edX Platform Developer Documentation](http://edx-developer-guide.readthedocs.org/en/latest/overview.html)
  * [x-module的列表](https://github.com/edx/edx-platform/tree/master/common/lib/xmodule/xmodule)
+ * [建设课程的详细文档](http://edx-partner-course-staff.readthedocs.org/en/latest/exercises_tools/external_graders.html)
