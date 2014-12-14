@@ -1,0 +1,46 @@
+安装前必须先安装oraclejdk,参照oraclejdk安装方法
+
+1) 问题：
+failed: [localhost] => (item={'host': u'localhost', 'port': '9200', 'service': 'elasticsearch'}) => {"elapsed": 10, "failed": true, "item": {"host": "localhost", "port": "9200", "service": "elasticsearch"}}
+msg: Timeout when waiting for 127.0.0.1:9200
+
+解决方案：
+手动安装elasticsearch后retry
+
+wget https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-0.90.3.tar.gz 
+
+tar xvf elasticsearch-0.90.3.tar.gz   
+
+进入config文件夹，编辑elasticsearch.yml，修改下面两行配置 
+
+node.name: "name of node"  
+node.master: true
+
+进入到bin目录 
+./elasticsearch
+
+访问http://host:9200 如果可以访问，说明elasticsearch已经启动。
+
+
+
+2) 问题:
+studio登录时
+Forbidden (403)
+
+CSRF verification failed. Request aborted.
+
+More information is available with DEBUG=True.
+
+解决方案：
+
+重启后解决
+
+
+3) 问题:
+无法访问8001端口进行已安装的xblock信息的查询
+
+解决方案：
+
+在入口服务器192.168.1.43:8001访问失败,需要在入口服务器上继续开启服务器的远程桌面
+然后在127.0.0.1:8001访问，即能成功访问。
+注意:192.168.1.43不能直接打开firefox，需开启终端后sudo firefox才可运行
