@@ -20,6 +20,7 @@ sudo pip install -r requirements.txt
 使用XBlock-SDK进行XBlock的开发
 
 创建目录edxwork用于新的XBlock
+
 $ cd ~
 $ mkdir edxwork
 $ cd edxwork
