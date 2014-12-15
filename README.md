@@ -20,10 +20,8 @@ Code-viewer X-module for EDX
 ========
 
  * [交流纪要](https://github.com/xyongcn/code-viewer/wiki/log)
+ * [外部参考文献收集](https://github.com/xyongcn/code-viewer/blob/master/%E9%93%BE%E6%8E%A5%E6%95%B4%E7%90%86.md)：这个文档维护与edX部署、使用和开发相关的参考链接。
 
-参考文献
-============
-
- * [edX Platform Developer Documentation](http://edx-developer-guide.readthedocs.org/en/latest/overview.html)
- * [x-module的列表](https://github.com/edx/edx-platform/tree/master/common/lib/xmodule/xmodule)
- * [建设课程的详细文档](http://edx-partner-course-staff.readthedocs.org/en/latest/exercises_tools/external_graders.html)
+项目结果
+===========
+ * [edx在Ubuntu12.04 64上的部署文档](https://github.com/xyongcn/code-viewer/blob/master/%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3.md)：这是由张禹完成的edX实际部署过程描述。已确认是可工作的。
