@@ -1,9 +1,12 @@
-参考网站：
-http://xblock.readthedocs.org/en/latest/getting_started.html
+xblock创建
+========
+[参考网站](http://xblock.readthedocs.org/en/latest/getting_started.html)
+
 
 
 
 安装XBlock：
+=======
 git clone https://github.com/edx/XBlock.git
 加载环境变量
 source /edx/app/edxapp/edxapp_env
