@@ -8,8 +8,10 @@ xblock创建
 安装XBlock：
 =======
 git clone https://github.com/edx/XBlock.git
+
 加载环境变量
 source /edx/app/edxapp/edxapp_env
+
 进入目录进行安装
 sudo pip install -r requirements.txt
 
