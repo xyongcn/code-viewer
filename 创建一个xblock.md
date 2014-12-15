@@ -22,8 +22,11 @@ sudo pip install -r requirements.txt
 创建目录edxwork用于新的XBlock
 
 $ cd ~
+
 $ mkdir edxwork
+
 $ cd edxwork
+
 $ sudo /path/to/xblock-sdk/script/startnew.py
 
 startnew.py脚本需要一个目录名以及一个类名参数，
