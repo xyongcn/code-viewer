@@ -17,7 +17,7 @@ ucore需要json格式的完整的编译命令方可确定各模块之间的关�
 
 1)生成compile_commands.json
 ======
->1.1)输出所需的环境变量
+1.1)输出所需的环境变量
 >
 >  export COMPILATION_COMMANDS=/home/zyu/woboq_codebrowser/compile_commands.json
 >
@@ -32,22 +32,22 @@ ucore需要json格式的完整的编译命令方可确定各模块之间的关�
 >
 >(应可使用环境变量,但不知道什么原因环境变量无效，暂时直接改成路径，待修改)
 
->1.2)开始写入json文件:
+1.2)开始写入json文件:
 >
 >  echo "[" > $COMPILATION_COMMANDS
 >
 >(以下为ucore的make命令)
 >  cd ucore
 >
-  make ARCH=i386 defconfig
+>  make ARCH=i386 defconfig
 
-  make
+>  make
 
-  make sfsimg
+>  make sfsimg
 
-  echo " { \"directory\": \".\", \"command\": \"true\", \"file\": \"/dev/null\" } ]" >>$COMPILATION_COMMANDS
+>  echo " { \"directory\": \".\", \"command\": \"true\", \"file\": \"/dev/null\" } ]" >>$COMPILATION_COMMANDS
 
-至此compile_commands.json写入完成
+>至此compile_commands.json写入完成
 
 
 
