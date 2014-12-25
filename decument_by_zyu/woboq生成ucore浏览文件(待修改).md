@@ -37,6 +37,7 @@ ucore需要json格式的完整的编译命令方可确定各模块之间的关�
 >  echo "[" > $COMPILATION_COMMANDS
 >
 >(以下为ucore的make命令)
+
 >  cd ucore
 >
 >  make ARCH=i386 defconfig
@@ -53,9 +54,7 @@ ucore需要json格式的完整的编译命令方可确定各模块之间的关�
 
 2)使用生成器生成静态页面
 ======
-  ./generator/codebrowser_generator -b $PWD -a -o ~/public_html/output -p 
-
-  ucore_plus:/home/zyu/ucore_plus
+  ./generator/codebrowser_generator -b $PWD -a -o ~/public_html/output -p ucore_plus:/home/zyu/ucore_plus
 
   ./indexgenerator/codebrowser_indexgenerator ~/public_html/output
 
