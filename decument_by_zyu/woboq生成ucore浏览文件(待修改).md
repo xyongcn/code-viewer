@@ -54,13 +54,13 @@ ucore需要json格式的完整的编译命令方可确定各模块之间的关�
 
 2)使用生成器生成静态页面
 ======
-  ./generator/codebrowser_generator -b $PWD -a -o ~/public_html/output -p ucore_plus:/home/zyu/ucore_plus
+  ./generator/codebrowser_generator -b $PWD -a -o ~/codebrowser/output -p ucore_plus:/home/zyu/ucore_plus
 
-  ./indexgenerator/codebrowser_indexgenerator ~/public_html/output
+  ./indexgenerator/codebrowser_indexgenerator ~/codebrowser/output
 
 将静态数据链入公共文件
 
-  ln -s /home/zyu/woboq_codebrowser/data /home/zyu/public_html/
+  ln -s /home/zyu/woboq_codebrowser/data /home/zyu/codebrowser/
 
 (具体参数选项请参考[woboq的github链接](https://github.com/woboq/woboq_codebrowser))
 
