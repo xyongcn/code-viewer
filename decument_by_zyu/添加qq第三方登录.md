@@ -79,6 +79,6 @@ vi lms/envs/devstack.py
 
 若上述步骤皆正确，可在8000端口访问登录时看到qq登录
     
-
+(注:以上为devstack环境下修改,若要在默认80端口看到第三方登录,则修改devstack.py需变为相应的lms.auth.json与lms.env.json,修改方式相同)
 
 
