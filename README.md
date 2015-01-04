@@ -25,3 +25,5 @@ Code-viewer X-module for EDX
 项目结果
 ===========
  * [edx在Ubuntu12.04 64上的部署文档](https://github.com/xyongcn/code-viewer/blob/master/%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3.md)：这是由张禹完成的edX实际部署过程描述。已确认是可工作的。
+ 
+ 公共账号(仅前台):用户名:share@example.com    密码:password
