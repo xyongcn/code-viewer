@@ -1,6 +1,7 @@
 iframe全屏模式切换
 ======
-1.在xblock的/static/js/src/codebrowser_view.js中的点击事件中添加如下代码
+1.
+在xblock的/static/js/src/codebrowser_view.js中的点击事件中添加如下代码
 
     var frame = document.getElementById("myvideo");
     if (frame.requestFullscreen) {
@@ -10,7 +11,9 @@ iframe全屏模式切换
     } else if (frame.webkitRequestFullscreen) {
         frame.webkitRequestFullscreen();
     }
+并加入引用,在xblock的/static/html/codebrowser_view.html加入如下代码
 
+    <script language="JavaScript" type="text/javascript" src="../js/src/codebrowser_view.js"></script>
 
 
 
