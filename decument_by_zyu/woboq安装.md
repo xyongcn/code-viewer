@@ -8,46 +8,58 @@ woboq需要先安装clang以及gcc,cmake,此处选择clang-3.3
 clang-3.3安装
 ======
 (部署时直接使用apt-get install获取的clang,在woboq generator生成时报错policy CMP0004,此处改用官方预编译的release版)
-wget http://llvm.org/releases/3.3/clang+llvm-3.3-amd64-Ubuntu-12.04.2.tar.gz
+
+    wget http://llvm.org/releases/3.3/clang+llvm-3.3-amd64-Ubuntu-12.04.2.tar.gz
 
 创建目录并解压
-mkdir /usr/local/clang3.3
+    mkdir /usr/local/clang3.3
 
-tar -xzvf clang+llvm-3.3-amd64-Ubuntu-12.04.2.tar.gz  -C  /usr/local/
+    tar -xzvf clang+llvm-3.3-amd64-Ubuntu-12.04.2.tar.gz  -C  /usr/local/
 
 更改环境配置
-echo 'export PATH=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin:$PATH'>>/etc/profile
+    echo 'export PATH=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin:$PATH'>>/etc/profile
 
-export PATH=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin:$PATH
+    export PATH=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin:$PATH
 
 编译生成器
 ======
 下载源码
-git clone https://github.com/woboq/woboq_codebrowser
+    git clone https://github.com/woboq/woboq_codebrowser
 
 cd woboq*
-1)cmake . -DLLVM_CONFIG_EXECUTABLE=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin/llvm-config 
--DCMAKE_CXX_COMPILER=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin/clang++ 
--DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release
+1)
 
-2)make
+    cmake . -DLLVM_CONFIG_EXECUTABLE=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin/llvm-config 
+    -DCMAKE_CXX_COMPILER=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin/clang++ 
+    -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release
 
-3)ln -s /usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/lib/ .
+2)
+
+    make
+
+3)
+
+    ln -s /usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/lib/ .
 
 编译完成
 
 使用生成器
 ======
-cmake . -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+
+    cmake . -DCMAKE_EXPORT_COMPILE_COMMANDS=ON
 
 创建代码html文件
-codebrowser_generator -a -o <output_dir> -b <buld_dir> -p <projectname>:<source_dir>[:<revision>] [-d <data_url>] [-e <remote_path>:<source_dir>:<remote_url>]
-(例如，将当前目录作为生成对象:./generator/codebrowser_generator -b $PWD -a -o ~/public_html/codebrowser -p codebrowser:$PWD:`git describe --always --tags`)
+
+    codebrowser_generator -a -o <output_dir> -b <buld_dir> -p <projectname>:<source_dir>[:<revision>] [-d <data_url>] [-e <remote_path>:<source_dir>:<remote_url>]
+(例如，将当前目录作为生成对象:
+
+    ./generator/codebrowser_generator -b $PWD -a -o ~/public_html/codebrowser -p codebrowser:$PWD:`git describe --always --tags`)
 
 生成索引html文件
-./indexgenerator/codebrowser_indexgenerator ~/public_html/codebrowser
 
-ln -s ./data ~/public_html/
+    ./indexgenerator/codebrowser_indexgenerator ~/public_html/codebrowser
+
+    ln -s ./data ~/public_html/
 
 生成完毕,public_html目录下即为可浏览的代码页面。
 
