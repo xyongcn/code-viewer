@@ -36,7 +36,7 @@ cd woboq*
     vi indexr.cpp
 
 
-89行 href='../'改成 '../index.html'
+89行 href='../'改成  '../index.html'
 
 97行将 name << "/" 改成 name << "/index.html"
 
