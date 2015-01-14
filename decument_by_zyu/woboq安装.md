@@ -27,17 +27,31 @@ clang-3.3安装
     git clone https://github.com/woboq/woboq_codebrowser
 
 cd woboq*
-1)
+
+1)由于直接使用woboq官方版在edx浏览代码时会出现点击目录时报错的情况(404 not found),在编译前对源码做如下调整
+
+将目录的链接从指向direc/改成指向direc/index.html
+
+    cd indexgenerator
+    vi indexr.cpp
+
+
+89行 href='../'改成 '../index.html'
+
+97行将 name << "/" 改成 name << "/index.html"
+
+
+ 2)
 
     cmake . -DLLVM_CONFIG_EXECUTABLE=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin/llvm-config 
     -DCMAKE_CXX_COMPILER=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin/clang++ 
     -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release
 
-2)
+3)
 
     make
 
-3)
+4)
 
     ln -s /usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/lib/ .
 
