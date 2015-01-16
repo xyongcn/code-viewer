@@ -30,15 +30,24 @@ cd woboq*
 
 1)由于直接使用woboq官方版在edx浏览代码时会出现点击目录时报错的情况(404 not found),在编译前对源码做如下调整
 
+(若已编译完则需重新编译)
+
 将目录的链接从指向direc/改成指向direc/index.html
 
     cd indexgenerator
     vi indexr.cpp
 
+63,69行 parent+ "'>" 改成 parent+ "index.html'>"
 
 89行 href='../'改成  '../index.html'
 
 97行将 name << "/" 改成 name << "/index.html"
+
+
+接着对data目录下的js文件做修改
+    cd data
+    vi codebrowser.js
+将765行 bread+= "'>" 改成 bread+= "index.html'>"
 
 
  2)
