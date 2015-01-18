@@ -41,6 +41,8 @@ cd woboq*
 
 89行 href='../'改成  '../index.html'
 
+96行 name << "/" 改成 name << "/index.html"
+
 97行将 name << "/" 改成 name << "/index.html"
 
 
