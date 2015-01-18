@@ -57,6 +57,7 @@ cd woboq*
     cmake . -DLLVM_CONFIG_EXECUTABLE=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin/llvm-config 
     -DCMAKE_CXX_COMPILER=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin/clang++ 
     -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release
+    (若你直接使用apt-get install 可成功安装或使用其他方式则更改路径即可)
 
 3)
 
