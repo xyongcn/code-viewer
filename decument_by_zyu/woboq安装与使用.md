@@ -46,10 +46,12 @@ cd woboq*
 97行将 name << "/" 改成 name << "/index.html"
 
 
-接着对data目录下的js文件做修改
+接着对data目录下的js文件做修改(无需重新编译即可生效)
     cd data
     vi codebrowser.js
 将765行 bread+= "'>" 改成 bread+= "index.html'>"
+    vi indexscript.js
+将182行 name + "/"  改成 name + "/index.html'>"
 
 
  2)
