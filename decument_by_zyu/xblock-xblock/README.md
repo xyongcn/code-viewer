@@ -73,6 +73,10 @@ edx服务器:
 
 (在脚本运行过程中也需添加用户gitlab上的私钥,确保ssh-agent运行,另外ssh-agent每次启动其中的私钥都会被清空)
 
+xblock-script中的create.sh运行于gitlab上,会被exp文件远程调用,将其拷贝到gitlab服务器上
+
+    scp xblock-script/create.sh remote_usrname@gitlab server ip:
+
 以root用户登录gitlab:
 
     mkdir ~/.ssh(if the home dir don't have .ssh)
@@ -154,4 +158,17 @@ static目录中存储了xblock所用的静态文件(js,html,css等)
 3.xblock-script
 
 存放了核心的脚本
+
+create.sh :             运行于gitlab服务器上,被initialize_user.exp远程调用,以admin用户创建gitlab用户并做初始化
+
+initialize_user.sh :    生成公钥,私钥,并写入git的配置文件(即上面创建的.ssh/config),调用initialize_user.exp
+来上传公钥,初始化ucore项目
+
+initialize_user.exp :   export 脚本,用于远程登录gitlab并调用create.sh
+
+generator.sh :          从gitlab上pull代码,并生成代码浏览页面
+
+make.sh :               ucore的make命令
+
+若你没有按照上述的目录进行部署,需要修改脚本中的目录位置(代码放置目录,页面放置目录等等)
 
