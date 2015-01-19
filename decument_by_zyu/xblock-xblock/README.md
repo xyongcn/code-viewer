@@ -59,15 +59,18 @@ edx服务器:
     
 生成ssh密钥并将公钥拷贝到gitlab根目录,将私钥添加到ssh-agent
 
+    cd /var/www/.ssh
+
     ssh-keygen -b 1024 -t rsa
     
     scp .ssh/id_dsa.pub remote_usrname@gitlab server ip:
     
     ssh-add id_rsa
     
-如果ssh-add 显示ssh-agent未启动,在.bashrc,.profile或其他配置文件中输入
+如果ssh-add 显示ssh-agent未启动,在.bash_profile或其他配置文件中输入
 
     eval `ssh-agent -s`
+    ssh-add
     
 以在www-data用户启动时启动ssh-agent
 
