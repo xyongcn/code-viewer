@@ -51,6 +51,80 @@ cli安装及配置:
 在edx服务器与gitlab服务器间建立无需密码的ssh连接(方便exp文件进行远程登录)
 ======
 
+edx服务器:
+
+切换到edx所用的账号(user :www-data, home: /var/www)
+
+    sudo -u www-data bash
+    
+生成ssh密钥并将公钥拷贝到gitlab根目录,将私钥添加到ssh-agent
+
+    ssh-keygen -b 1024 -t rsa
+    
+    scp .ssh/id_dsa.pub remote_usrname@gitlab server ip:
+    
+    ssh-add id_rsa
+    
+如果ssh-add 显示ssh-agent未启动,在.bashrc,.profile或其他配置文件中输入
+
+    eval `ssh-agent -s`
+    
+以在www-data用户启动时启动ssh-agent
+
+(在脚本运行过程中也需添加用户gitlab上的私钥,确保ssh-agent运行,另外ssh-agent每次启动其中的私钥都会被清空)
+
+以root用户登录gitlab:
+
+    mkdir ~/.ssh(if the home dir don't have .ssh)
+    
+    chmod 700 ~/.ssh
+    
+    mv id_rsa.pub ~/.ssh
+    
+    cd ~/.ssh
+    
+    cat id_rsa.pub >> authorized_keys2
+    
+    rm -f id_rsa.pub
+    
+    chmod 600 authorized_keys2
+    
+现在已经建立了从edx服务器到gitlab服务器的ssh连接了
+
+    ssh root@ip
+    
+能够无需输入密码即可登录说明配置正确
+(ps: 第一次登录时会有提醒,exp文件中未对第一次的交互情况进行判断,所以务必先尝试以确保能够登录)
+
+
+建立必要的目录
+======
+woboq codebrowser的编译及使用参考本项目另外的文档,不在此叙述,记得编译前先修改源码以确保点击目录时不报错
+
+
+切换到www-data建立文件以确保有访问及创建文件的权限
+
+    sudo -u www-data bash
+    
+    cd .ssh
+    
+    touch config
+    
+此config文件内容由脚本自动写入,用于在不同gitlab用户间切换时使用不同的私钥
+
+    cd /edx/var/edxapp
+    
+拷贝编译完成的woboq codebrowser文件至此目录
+
+    mkdir woboq_codebrowser
+   
+    cp -r your_woboq_codebrowser_file/* ./woboq_codebrowser/
+    
+    cd staticfiles
+    
+    mkdir codebrowser(放置代码浏览页面文件的目录)
+    
+    mkdir ucore(存放从用户gitlab上pull下来的代码)
 
 
 
