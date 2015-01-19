@@ -127,5 +127,31 @@ woboq codebrowser的编译及使用参考本项目另外的文档,不在此叙�
     mkdir ucore(存放从用户gitlab上pull下来的代码)
 
 
+主要文件介绍
+======
 
+1.codebrowser.py:
+
+标准的xblock模块,利用os.system调用脚本,若脚本位置移动,记得修改此函数的参数并及时更新xblock
+
+
+添加模块至edx-platform
+
+    sudo -u edxapp /edx/bin/pip.edxapp install /home/zyu/xblock-codebrowser
+    
+若模块安装完成后修改了static目录中的文件,手动将static拷贝至指定目录并覆盖
+
+    sudo cp -r static/* /edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/static/
+    
+若修改了codebrowser.py
+
+    sudo cp ./codebrowser.py /edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/
+    
+2.static
+
+static目录中存储了xblock所用的静态文件(js,html,css等)
+
+3.xblock-script
+
+存放了核心的脚本
 
