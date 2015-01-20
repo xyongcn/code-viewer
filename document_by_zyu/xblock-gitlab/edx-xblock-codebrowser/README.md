@@ -1,0 +1,2 @@
+xblock-script中为edx上所需的脚本,create.sh为gitlab服务器所需的脚本,其余为标准
+xblock模块文件
