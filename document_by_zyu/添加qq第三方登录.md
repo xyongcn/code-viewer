@@ -9,8 +9,12 @@ Open edX 的第三方登录使用了django-social-auth,django-social-auth,
 1)在[QQ互联](http://connect.qq.com)上进行注册,获取开发者ID与密钥,要注册成功,
 必须让QQ服务器能够访问到使用qq登录的页面.
 
+验证时需修改edx首页,目录为/edx/app/edxapp/edx-platform/lms/templates/main.html
+
 2)edx的django-social-auth默认库中没有对qq的支持,
+
 从[github库](https://github.com/omab/python-social-auth/tree/master/social/backends)
+
 中获取qq.py,将其拷贝至/edx/app/edxapp/venvs/edxapp/lib/python2.7/site-packages/social/backends/目录下
 
 进入到edx环境
