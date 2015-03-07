@@ -15,6 +15,11 @@ Open edX 的第三方登录使用了django-social-auth,django-social-auth,
 为通过审核,还需暂时修改qq登录图标,同上修改login.html中的如下代码
 
     <button type="submit" class="button button-primary button-${enabled.NAME} login-${enabled.NAME}" onclick="thirdPartySignin(event, '${pipeline_url[enabled.NAME]}');"><span class="icon ${enabled.ICON_CLASS}"></span>${_('Sign in with {provider_name}').format(provider_name=enabled.NAME)}</button>
+    
+    从qq互联上下载登录按钮放在/edx/var/edxapp/staticfiles/images中，修改代码为
+    
+    <input type="image"  onclick="thirdPartySignin(event, '${pipeline_url[enabled.NAME]}');" src="/static/images/icon-qq.png"/>
+    
 
 2)edx的django-social-auth默认库中没有对qq的支持,
 
