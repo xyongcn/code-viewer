@@ -18,6 +18,14 @@ gitlab部署及cli使用
 
 由于镜像版本过低,已重新安装最新版本
 
+cli需ruby版本>=1.9.3,ubuntu12.04自带ruby过低
+
+安装ruby1.9.3
+
+    sudo apt-get install ruby 1.9.3
+    cd /etc/alternatives
+    sudo ln -sf /usr/bin/ruby1.9.3 ruby
+
 cli安装及配置:
 
     gem install gitlab
