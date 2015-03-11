@@ -7,7 +7,7 @@ gitlab初始账号:
 
 用户名: edx邮箱
 
-初始密码: password
+初始密码: 随机8位密码,发送至邮箱
 
 在每次用户访问时,利用本地的私钥从用户gitlab账户pull 代码,生成woboq 静态代码浏览页面,供iframe使用
 
@@ -15,6 +15,8 @@ gitlab初始账号:
 gitlab部署及cli使用
 ======
 [gitlab镜像](http://www.turnkeylinux.org/gitlab)
+
+由于镜像版本过低,已重新安装最新版本
 
 cli安装及配置:
 
