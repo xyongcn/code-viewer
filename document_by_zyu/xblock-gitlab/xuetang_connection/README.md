@@ -3,7 +3,7 @@
 
 1.由于学堂在线上无法在服务器上安装xblock,所以只能在自己的服务器上进行处理,向外提供一个服务借口
 
-student_view.html是学堂在线前台的html文件,访问edx服务器的一个特定url,并向url传递参数:用户id,邮箱,用户名
+student_view.html是学堂在线前台的html文件,访问edx服务器的一个特定url,并向url传递参数:{用户id,邮箱,用户名}
 
 edx服务器使用django架构,在urls.py文件中添加对如下url的处理
 
