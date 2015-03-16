@@ -18,7 +18,9 @@ edx服务器使用django架构,在urls.py文件中添加对如下url的处理
 
 create_edx_user.sh添加一个edx用户
 
-其余脚本由于传递的参数与xblock有所不同,代码内容略有不同,见本目录的其余脚本
+其余脚本由于传递的参数与xblock有所不同,并且所使用的实验代码不同(ucore_lab中包含lab1~lab8)
+
+代码内容略有不同,见本目录的其余脚本
 
 2.gitlab由于以前使用的版本过老,已更新至最新版本,gitlab cli中创建用户的命令不可用,所以自写了一个ruby脚本用于访问api,见create_user.rb
 
