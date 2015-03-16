@@ -1,0 +1,91 @@
+<input id="init_git" onclick="javascript:window.open('http://east.cs.tsinghua.edu.cn/init_git?usrid=%%USER_ID%%&email=%%USER_EMAIL%%&name=%%USER_NAME%%');Delaybar(this)"
+	type="button" style="width: 125px; height: 30px;" value="创建gitlab账号"/>
+
+<br/>
+<br/>
+
+<select id ="lab" style="width:100px">
+  <option value ="lab1">lab1</option>
+  <option value ="lab2">lab2</option>
+  <option value ="lab3">lab3</option>
+  <option value ="lab4">lab4</option>
+  <option value ="lab5">lab5</option>
+  <option value ="lab6">lab6</option>
+  <option value ="lab7">lab7</option>
+  <option value ="lab8">lab8</option>
+</select>
+
+<br/>
+
+<input type="button" onclick="button_fullscreen()" style="width: 85px; height: 30px;" value="全屏"/>
+
+<span style="font-size:120px;">&nbsp;&nbsp;&nbsp;</span>
+
+<input onclick="refresh();Delaybar(this)" type="button" value="同步代码" style="width: 85px; height: 30px;"/>
+
+<br/>
+
+<iframe src="http://east.cs.tsinghua.edu.cn/static/codebrowser/%%USER_ID%%/lab1/index.html"  id="codeview" width="800" height="900" border="0" scrolling="no" frameborder="0"></iframe>
+
+<iframe src="http://east.cs.tsinghua.edu.cn/codebrowser?lab=lab1&usrid=%%USER_ID%%&name=%%USER_NAME%%"  id="refresh" frameborder="0" style= "display:none "></iframe>
+
+
+<br/>
+
+
+//full screen
+<script type="text/javascript" language="javascript">
+function button_fullscreen() {
+  var frame = document.getElementById("codeview");
+  if (frame.requestFullscreen) {
+    frame.requestFullscreen();
+  } 
+  else if (frame.mozRequestFullScreen) {
+    frame.mozRequestFullScreen();
+  } 
+  else if (frame.webkitRequestFullscreen) {
+    frame.webkitRequestFullscreen();
+  }
+}
+
+function refresh() {
+  
+  var lab_num=document.getElementById("lab").value;
+      
+  document.getElementById("refresh").src = "http://east.cs.tsinghua.edu.cn/codebrowser?lab=" + lab_num  +"&usrid=%%USER_ID%%&name=%%USER_NAME%%";
+  
+  var iframe = document.getElementById("refresh");
+  if (iframe.attachEvent){ 
+    iframe.attachEvent("onload", function(){ 
+	
+	  document.getElementById("codeview").src = "http://east.cs.tsinghua.edu.cn/static/codebrowser/%%USER_ID%%/" +lab_num +"/index.html";
+	  
+    }); 
+  } else { 
+    iframe.onload = function(){ 
+
+	document.getElementById("codeview").src = "http://east.cs.tsinghua.edu.cn/static/codebrowser/%%USER_ID%%/" +lab_num +"/index.html";
+	
+    };
+  } 
+}
+
+function Delaybar(e){
+	var Delaytime = 20;
+	var text = e.value;
+	e.disabled= true;
+	var Delayval = window.setInterval(SetRemainTime, 2000); 
+	function SetRemainTime() {
+		if (Delaytime > 0) {
+			e.value = Delaytime;
+			Delaytime = Delaytime - 1; 
+		} else {
+			window.clearInterval(Delayval); 
+			e.removeAttribute("disabled");
+			e.value = text;
+		} 
+	}
+}
+
+
+</script>
