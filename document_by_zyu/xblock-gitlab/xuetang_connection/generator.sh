@@ -45,6 +45,10 @@ echo "[" > $COMPILATION_COMMANDS
 
 $base/staticfiles/xblock-script/make.sh $id $lab
 
+#the compile_commands have error,modify it
+sed -i "s/MM/c/g" $COMPILATION_COMMANDS
+sed -i "s/MT/o/g" $COMPILATION_COMMANDS
+
 echo " { \"directory\": \".\", \"command\": \"true\", \"file\": \"/dev/null\" } ]" >> $COMPILATION_COMMANDS
 
 sed -i "s/\/edx\/var\/edxapp\/staticfiles\/ucore\/${id}\/fake_compiler.sh/\$(HOSTCC)/g" $code_base/$id/ucore_lab/labcodes/$lab/Makefile
