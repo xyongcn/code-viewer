@@ -9,6 +9,6 @@ uri = URI.parse("http://south.cs.tsinghua.edu.cn/api/v3/users")
 http = Net::HTTP::new(uri.host, uri.port)
 request = Net::HTTP::Post.new(uri.request_uri)
 request.set_form_data({"username" => username, "email" => email, "password" => password, "name" => name})
-request["PRIVATE-TOKEN"] = "Gysy4D6M1-B6sTNtyu2S"
+request["PRIVATE-TOKEN"] = "XXXXXXX"
 response = http.request(request)
 puts "#{response.body}"
