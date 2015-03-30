@@ -1,6 +1,8 @@
 简介
 ======
 
+edx-xblock-codebrowser中放置的是在自己的openedx平台安装的xblock,xuetang_connection中放置的是在学堂在线上使用的方案
+
 xblock调用脚本,在用户第一次访问时在gitlab上创建账号,上传公钥,初始化ucore
 
 gitlab初始账号:
