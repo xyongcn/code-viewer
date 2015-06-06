@@ -10,7 +10,7 @@ Open edX 的第三方登录使用了django-social-auth,django-social-auth,
 
 必须让QQ服务器能够访问到使用qq登录的页面.
 
-验证时需修改edx首页,目录为/edx/app/edxapp/edx-platform/lms/templates/main.html
+验证时需修改edx首页,目录为/edx/app/edxapp/edx-platform/lms/templates/
 
 为通过审核,还需暂时修改qq登录图标,同上修改login.html中的如下代码
 
