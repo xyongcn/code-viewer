@@ -76,11 +76,11 @@ vi lms/envs/devstack.py
 
     THIRD_PARTY_AUTH = {
 
-    "Weibo": {
+    "QQ": {
 
-        "SOCIAL_AUTH_WEIBO_KEY": "your key",
+        "SOCIAL_AUTH_QQ_KEY": "your key",
 
-        "SOCIAL_AUTH_WEIBO_SECRET": "your secret"
+        "SOCIAL_AUTH_QQ_SECRET": "your secret"
 
         }
     }
