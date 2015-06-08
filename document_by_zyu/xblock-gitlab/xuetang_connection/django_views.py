@@ -94,5 +94,12 @@ def codebrowser(request):
 
     logger.info('info codebrowser  id:' + usrid + ' name:' + name + 'lab: ' + lab)
 
-    os.system("/edx/var/edxapp/staticfiles/xblock-script/generator.sh " + usrid + " "  + name + " " + lab)
-    return HttpResponse("usrid = " + usrid)
+    res = os.system("/edx/var/edxapp/staticfiles/xblock-script/generator.sh " + usrid + " "  + name + " " + lab)
+    res >> 8
+
+    if res == 1:
+        logger.info('error codebrowser  api return false id:' + usrid + ' name:' + name + 'lab: ' + lab)
+    elif res == 2:
+        logger.info('error codebrowser  private empty  id:' + usrid + ' name:' + name + 'lab: ' + lab)
+
+    #return HttpResponse("usrid = " + usrid)
