@@ -3,7 +3,7 @@ id=$1
 username=$2
 lab=$3
 
-ip=192.168.1.62
+ip=south.cs.tsinghua.edu.cn
 port=22
 
 base="/edx/var/edxapp"
@@ -15,6 +15,7 @@ data_dir=$out_base/"data"
 key_file=/var/www/.ssh/id_rsa_$id
 api_url="https://north.cs.tsinghua.edu.cn:1986/api/users"
 config_file=/var/www/.ssh/config
+log_file=/var/www/error.log
 
 #username=$(echo $email | sed "s/\(\)@.*/\1/")
 
@@ -29,9 +30,15 @@ then
 
     if [ "$result"x = "false"x ]
     then
+        echo "rest api return false             |$username      |$id" >> $log_file
         exit 1
     fi
 
+    if [ -z $private_key ]
+    then
+        echo "cannot get the private key        |$username      |$id" >> $log_file
+        exit 2
+    fi
     touch $key_file
     chmod 600 $key_file
     echo -e $private_key >> $key_file
@@ -91,3 +98,5 @@ if [ ! -d $data_dir ]
 then
     ln -s $woboq_base/data $out_base/$id/
 fi
+
+exit 0
