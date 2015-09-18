@@ -39,21 +39,21 @@ clang-3.3安装
     cd indexgenerator
     vi indexer.cpp
 
-63,69行 parent+ "'>" 改成 parent+ "index.html'>"
+66,72行 parent+ "'>" 改成 parent+ "index.html'>"
 
-89行 href='../'改成  '../index.html'
+92行 href='../'改成  '../index.html'
 
-96行 name << "/" 改成 name << "/index.html"
+99行 name << "/" 改成 name << "/index.html"
 
-97行将 name << "/" 改成 name << "/index.html"
+100行将 name << "/' 改成 name << "/index.html'
 
 
 接着对data目录下的js文件做修改(无需重新编译即可生效)
     cd data
     vi codebrowser.js
-将765行 bread+= "'>" 改成 bread+= "index.html'>"
+将809行 bread+= "'>" 改成 bread+= "index.html'>"
     vi indexscript.js
-将182行 name + "/"  改成 name + "/index.html'>"
+将182行 name + "/'>"  改成 name + "/index.html'>"
 
 
  2)
