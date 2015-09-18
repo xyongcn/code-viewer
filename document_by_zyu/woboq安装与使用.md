@@ -1,6 +1,6 @@
 woboq是一款开源的在线代码浏览器,在服务器上部署后,只需提供项目所在的目录,即可生成静态的文件目录,在浏览器
 打开后即可访问。
-======
+
 [官方网站部署流程](https://github.com/woboq/woboq_codebrowser)
 
 woboq需要先安装clang以及gcc,cmake,此处选择clang-3.4(记得看上面提到的官网是否更新所需的clang版本)
