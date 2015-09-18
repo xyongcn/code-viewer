@@ -70,7 +70,7 @@ clang-3.4安装
 
 4)
 
-    ln -s /usr/local/clang3.3/lib/ .
+    ln -s /usr/local/clang3.4/lib/ .
 
 编译完成
 
