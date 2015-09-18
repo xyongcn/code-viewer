@@ -3,25 +3,26 @@ woboq是一款开源的在线代码浏览器,在服务器上部署后,只需提�
 ======
 [官方网站部署流程](https://github.com/woboq/woboq_codebrowser)
 
-woboq需要先安装clang以及gcc,cmake,此处选择clang-3.3
+woboq需要先安装clang以及gcc,cmake,此处选择clang-3.4(记得看上面提到的官网是否更新所需的clang版本)
 
-clang-3.3安装
+clang-3.4安装
 ======
 (部署时直接使用apt-get install获取的clang,在woboq generator生成时报错policy CMP0004,此处改用官方预编译的release版)
 
-    wget http://llvm.org/releases/3.3/clang+llvm-3.3-amd64-Ubuntu-12.04.2.tar.gz
+    wget http://llvm.org/releases/3.4/clang+llvm-3.4-x86_64-unknown-ubuntu12.04.tar.xz
 
 解压至指定目录
 
-    tar -xzvf clang+llvm-3.3-amd64-Ubuntu-12.04.2.tar.gz  -C  /usr/local/
+    xz clang+llvm-3.4-x86_64-unknown-ubuntu12.04.tar.xz
+    tar -xvf clang+llvm-3.4-x86_64-unknown-ubuntu12.04.tar  -C  /usr/local/
     cd /usr/local
-    mv clang+llvm-3.3-amd64-Ubuntu-12.04.2 clang3.3
+    mv clang+llvm-3.4-x86_64-unknown-ubuntu12.04 clang3.4
 
 更改环境配置
 
-    echo 'export PATH=/usr/local/clang3.3/bin:$PATH'>>/etc/profile
+    echo 'export PATH=/usr/local/clang3.4/bin:$PATH'>>/etc/profile
 
-    export PATH=/usr/local/clang3.3/bin:$PATH
+    export PATH=/usr/local/clang3.4/bin:$PATH
 
 编译生成器
 ======
@@ -58,8 +59,8 @@ clang-3.3安装
 
  2)
 
-    cmake . -DLLVM_CONFIG_EXECUTABLE=/usr/local/clang3.3/bin/llvm-config 
-    -DCMAKE_CXX_COMPILER=/usr/local/clang3.3/bin/clang++ 
+    cmake . -DLLVM_CONFIG_EXECUTABLE=/usr/local/clang3.4/bin/llvm-config 
+    -DCMAKE_CXX_COMPILER=/usr/local/clang3.4/bin/clang++ 
     -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release
     (若你直接使用apt-get install 可成功安装或使用其他方式则更改路径即可)
 
