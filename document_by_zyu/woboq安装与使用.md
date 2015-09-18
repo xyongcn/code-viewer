@@ -11,22 +11,24 @@ clang-3.3安装
 
     wget http://llvm.org/releases/3.3/clang+llvm-3.3-amd64-Ubuntu-12.04.2.tar.gz
 
-创建目录并解压
-    mkdir /usr/local/clang3.3
+解压至指定目录
 
     tar -xzvf clang+llvm-3.3-amd64-Ubuntu-12.04.2.tar.gz  -C  /usr/local/
+    cd /usr/local
+    mv clang+llvm-3.3-amd64-Ubuntu-12.04.2 clang3.3
 
 更改环境配置
-    echo 'export PATH=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin:$PATH'>>/etc/profile
 
-    export PATH=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin:$PATH
+    echo 'export PATH=/usr/local/clang3.3/bin:$PATH'>>/etc/profile
+
+    export PATH=/usr/local/clang3.3/bin:$PATH
 
 编译生成器
 ======
 下载源码
-    git clone https://github.com/woboq/woboq_codebrowser
 
-cd woboq*
+    git clone https://github.com/woboq/woboq_codebrowser
+    cd woboq*
 
 1)由于直接使用woboq官方版在edx浏览代码时会出现点击目录时报错的情况(404 not found),在编译前对源码做如下调整
 
@@ -35,7 +37,7 @@ cd woboq*
 将目录的链接从指向direc/改成指向direc/index.html
 
     cd indexgenerator
-    vi indexr.cpp
+    vi indexer.cpp
 
 63,69行 parent+ "'>" 改成 parent+ "index.html'>"
 
@@ -56,8 +58,8 @@ cd woboq*
 
  2)
 
-    cmake . -DLLVM_CONFIG_EXECUTABLE=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin/llvm-config 
-    -DCMAKE_CXX_COMPILER=/usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/bin/clang++ 
+    cmake . -DLLVM_CONFIG_EXECUTABLE=/usr/local/clang3.3/bin/llvm-config 
+    -DCMAKE_CXX_COMPILER=/usr/local/clang3.3/bin/clang++ 
     -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_BUILD_TYPE=Release
     (若你直接使用apt-get install 可成功安装或使用其他方式则更改路径即可)
 
@@ -67,7 +69,7 @@ cd woboq*
 
 4)
 
-    ln -s /usr/local/clang+llvm-3.3-amd64-Ubuntu-12.04.2/lib/ .
+    ln -s /usr/local/clang3.3/lib/ .
 
 编译完成
 
