@@ -13,7 +13,7 @@ clang-3.4安装
 
 解压至指定目录
 
-    xz clang+llvm-3.4-x86_64-unknown-ubuntu12.04.tar.xz
+    xz -d clang+llvm-3.4-x86_64-unknown-ubuntu12.04.tar.xz
     tar -xvf clang+llvm-3.4-x86_64-unknown-ubuntu12.04.tar  -C  /usr/local/
     cd /usr/local
     mv clang+llvm-3.4-x86_64-unknown-ubuntu12.04 clang3.4
