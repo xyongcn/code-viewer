@@ -48,6 +48,12 @@ clang-3.4安装
 
 100行将 name << "/' 改成 name << "/index.html'
 
+    cd generator
+    vi generator.cpp
+    
+131行myfile << "'>" 改为myfile << "/index.html'>"
+
+137行myfile << "<a href='./'>" 改为myfile << "<a href='./index.html'>"
 
 接着对data目录下的js文件做修改(无需重新编译即可生效)
     cd data
